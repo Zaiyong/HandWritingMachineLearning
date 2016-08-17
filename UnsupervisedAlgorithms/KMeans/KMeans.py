@@ -42,14 +42,10 @@ class kMeans:
     def kMeans(self):
         cluster_changed=True
         centroids,cluster=self.initCluster()
-        print centroids
-        print cluster
         centroids=self.updateCluster(centroids, cluster)
-        print centroids
         N=0
         while cluster_changed:
             N+=1
-            print N 
             cluster_changed=False
             for i in range(0,self.x_dim):
                 resign_centroid=self.findClosestCentroid(cluster[i][0], centroids)
