@@ -47,4 +47,14 @@ class NaiveBayesClassifier:
                 std=self.classifier[_class][i][1]
                 probabilities[_class]*=scipy.stats.norm(m,std).pdf(case[i])
         return probabilities
+    
+    def predict(self,case):
+        probabilities=self.calculateProbabilities(case)
+        max_prob=-1
+        predicted_class=None
+        for key,value in probabilities.iteritems():
+            if value>max_prob:
+                predicted_class=key
+                max_prob=value
+        return predicted_class
         
