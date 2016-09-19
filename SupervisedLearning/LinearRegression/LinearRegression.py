@@ -15,7 +15,3 @@ class LinearRegression:
         X=np.insert(self.X,0,1,axis=1)
         X1=np.matrix.transpose(X)*X
         return np.linalg.inv(X1)*np.matrix.transpose(X)*self.y
-
-
-    def gradientDescent(self):
-        pass
